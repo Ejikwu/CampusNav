@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0B5D3B"
+    >
+
+    <title>CampusNav Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/admin_dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="admin-sidebar">
+
+    <div class="admin-brand">
+
+        <img
+            src="../assets/logo.png"
+            alt="CampusNav Logo"
+        >
+
+        <div>
+
+            <h2>
+                CampusNav
+            </h2>
+
+            <span>
+                Administrator
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="admin-menu">
+
+        <button
+            type="button"
+            class="admin-menu-item active"
+            data-target="dashboardSection"
+        >
+            <span>▣</span>
+            <span>Dashboard</span>
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-menu-item"
+            data-target="buildingsSection"
+        >
+            <span>▦</span>
+            <span>Buildings</span>
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-menu-item"
+            data-target="locationsSection"
+        >
+            <span>⌖</span>
+            <span>Locations</span>
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-menu-item"
+            data-target="routesSection"
+        >
+            <span>➜</span>
+            <span>Routes</span>
+        </button>
+
+
+        <button
+            type="button"
+            class="admin-menu-item"
+            data-target="settingsSection"
+        >
+            <span>⚙</span>
+            <span>Settings</span>
+        </button>
+
+    </nav>
+
+
+    <button
+        type="button"
+        class="logout-button"
+        id="logoutButton"
+    >
+        <span>↪</span>
+        <span>Logout</span>
+    </button>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main class="admin-main">
+
+
+<header class="admin-topbar">
+
+    <div>
+
+        <h1 id="pageTitle">
+            Dashboard
+        </h1>
+
+        <p id="pageSubtitle">
+            CampusNav administration panel
+        </p>
+
+    </div>
+
+
+    <div class="admin-profile">
+
+        <div class="admin-avatar">
+            A
+        </div>
+
+        <span>
+            Administrator
+        </span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+====================================================== -->
+
+<section
+    id="dashboardSection"
+    class="admin-section"
+>
+
+    <div class="welcome-card">
+
+        <div>
+
+            <h2>
+                Welcome, Administrator
+            </h2>
+
+            <p>
+                Manage CampusNav buildings,
+                locations and navigation routes
+                from this dashboard.
+            </p>
+
+        </div>
+
+        <div class="welcome-icon">
+            ◉
+        </div>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ▦
+            </div>
+
+            <div>
+
+                <span>
+                    Buildings
+                </span>
+
+                <strong id="buildingCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⌖
+            </div>
+
+            <div>
+
+                <span>
+                    Locations
+                </span>
+
+                <strong id="locationCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ➜
+            </div>
+
+            <div>
+
+                <span>
+                    Routes
+                </span>
+
+                <strong id="routeCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+        <h2>
+            Quick Actions
+        </h2>
+
+
+        <div class="quick-action-grid">
+
+            <button
+                type="button"
+                class="quick-action"
+                data-target="buildingsSection"
+            >
+
+                <span>
+                    ▦
+                </span>
+
+                <strong>
+                    Add Building
+                </strong>
+
+                <small>
+                    Add a new building to
+                    the campus map.
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="quick-action"
+                data-target="locationsSection"
+            >
+
+                <span>
+                    ⌖
+                </span>
+
+                <strong>
+                    Add Location
+                </strong>
+
+                <small>
+                    Add gates, departments,
+                    halls and other places.
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="quick-action"
+                data-target="routesSection"
+            >
+
+                <span>
+                    ➜
+                </span>
+
+                <strong>
+                    Add Route
+                </strong>
+
+                <small>
+                    Record a real campus route
+                    using GPS.
+                </small>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BUILDINGS
+====================================================== -->
+
+<section
+    id="buildingsSection"
+    class="admin-section hidden"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Buildings
+            </h2>
+
+            <p>
+                Add and manage campus buildings.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-button"
+            id="addBuildingButton"
+        >
+            + Add Building
+        </button>
+
+    </div>
+
+
+    <div
+        id="buildingFormCard"
+        class="admin-form-card hidden"
+    >
+
+        <h3>
+            Add Building
+        </h3>
+
+
+        <form id="buildingForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="buildingName">
+                        Building Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="buildingName"
+                        placeholder="e.g. BF1 Block"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="buildingCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="buildingCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Academic">
+                            Academic
+                        </option>
+
+                        <option value="Administrative">
+                            Administrative
+                        </option>
+
+                        <option value="Residential">
+                            Residential
+                        </option>
+
+                        <option value="Facility">
+                            Facility
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="buildingLatitude">
+                        Latitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="buildingLatitude"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="buildingLongitude">
+                        Longitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="buildingLongitude"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="buildingDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="buildingDescription"
+                    rows="4"
+                    placeholder="Describe the building..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="buildingImage">
+                    Building Image
+                </label>
+
+                <input
+                    type="file"
+                    id="buildingImage"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelBuildingButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Building
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="data-card">
+
+        <div class="data-card-header">
+
+            <h3>
+                Campus Buildings
+            </h3>
+
+            <input
+                type="text"
+                id="buildingSearch"
+                placeholder="Search buildings..."
+            >
+
+        </div>
+
+
+        <div
+            id="buildingsList"
+            class="empty-state"
+        >
+
+            <span>
+                ▦
+            </span>
+
+            <h3>
+                No Buildings Yet
+            </h3>
+
+            <p>
+                Buildings added from the form
+                will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOCATIONS
+====================================================== -->
+
+<section
+    id="locationsSection"
+    class="admin-section hidden"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Locations
+            </h2>
+
+            <p>
+                Manage important places around
+                the campus.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-button"
+            id="addLocationButton"
+        >
+            + Add Location
+        </button>
+
+    </div>
+
+
+    <div
+        id="locationFormCard"
+        class="admin-form-card hidden"
+    >
+
+        <h3>
+            Add Location
+        </h3>
+
+
+        <form id="locationForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="locationName">
+                        Location Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="locationName"
+                        placeholder="e.g. Main Gate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="locationCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="locationCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Gate">
+                            Gate
+                        </option>
+
+                        <option value="Library">
+                            Library
+                        </option>
+
+                        <option value="Department">
+                            Department
+                        </option>
+
+                        <option value="Lecture Hall">
+                            Lecture Hall
+                        </option>
+
+                        <option value="Office">
+                            Office
+                        </option>
+
+                        <option value="Laboratory">
+                            Laboratory
+                        </option>
+
+                        <option value="Hostel">
+                            Hostel
+                        </option>
+
+                        <option value="Facility">
+                            Facility
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="locationLatitude">
+                        Latitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="locationLatitude"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="locationLongitude">
+                        Longitude
+                    </label>
+
+                    <input
+                        type="number"
+                        id="locationLongitude"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="locationDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="locationDescription"
+                    rows="4"
+                    placeholder="Describe this location..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelLocationButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Location
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="data-card">
+
+        <div class="data-card-header">
+
+            <h3>
+                Campus Locations
+            </h3>
+
+            <input
+                type="text"
+                id="locationSearch"
+                placeholder="Search locations..."
+            >
+
+        </div>
+
+
+        <div
+            id="locationsList"
+            class="empty-state"
+        >
+
+            <span>
+                ⌖
+            </span>
+
+            <h3>
+                No Locations Yet
+            </h3>
+
+            <p>
+                Add locations such as Main Gate,
+                Back Gate, Library, departments
+                and lecture halls.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ROUTES
+====================================================== -->
+
+<section
+    id="routesSection"
+    class="admin-section hidden"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Routes
+            </h2>
+
+            <p>
+                Record and manage real campus
+                navigation routes.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-button"
+            id="addRouteButton"
+        >
+            + Add Route
+        </button>
+
+    </div>
+
+
+    <div
+        id="routeFormCard"
+        class="admin-form-card hidden"
+    >
+
+        <h3>
+            Add Navigation Route
+        </h3>
+
+
+        <form id="routeForm">
+
+
+            <!-- =================================================
+                 ROUTE TRACKING
+            ================================================== -->
+
+            <div
+                style="
+                    padding:18px;
+                    border:1px solid #ddd;
+                    border-radius:14px;
+                    margin-bottom:20px;
+                "
+            >
+
+                <h3 style="
+                    margin-top:0;
+                ">
+                    GPS Route Recorder
+                </h3>
+
+
+                <p
+                    id="routeTrackingMessage"
+                    style="
+                        color:#666;
+                        line-height:1.5;
+                    "
+                >
+                    Select a travel mode, then
+                    click Start Route.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label for="routeMode">
+                        Travel Mode
+                    </label>
+
+                    <select
+                        id="routeMode"
+                    >
+
+                        <option value="walking">
+                            Walking
+                        </option>
+
+                        <option value="bike">
+                            Bike
+                        </option>
+
+                        <option value="car">
+                            Car
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="form-grid"
+                    style="
+                        margin-top:15px;
+                    "
+                >
+
+                    <div class="form-group">
+
+                        <label>
+                            Distance
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeLiveDistance"
+                            value="0 m"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Time
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeLiveTime"
+                            value="00:00"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Speed
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeSpeed"
+                            value="0 km/h"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Current Latitude
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeCurrentLatitude"
+                            value="-"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Current Longitude
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeCurrentLongitude"
+                            value="-"
+                            readonly
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="form-actions"
+                    style="
+                        margin-top:15px;
+                    "
+                >
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="startRouteButton"
+                    >
+                        Start Route
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button hidden"
+                        id="stopRouteButton"
+                    >
+                        Stop & Save Route
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NORMAL ROUTE INFORMATION
+            ================================================== -->
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="routeStart">
+                        Starting Location
+                    </label>
+
+                    <select
+                        id="routeStart"
+                    >
+
+                        <option value="">
+                            Select starting location
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="routeDestination">
+                        Destination
+                    </label>
+
+                    <select
+                        id="routeDestination"
+                    >
+
+                        <option value="">
+                            Select destination
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="routeDistance">
+                        Distance
+                    </label>
+
+                    <input
+                        type="text"
+                        id="routeDistance"
+                        placeholder="e.g. 500 metres"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="routeDuration">
+                        Estimated Time
+                    </label>
+
+                    <input
+                        type="text"
+                        id="routeDuration"
+                        placeholder="e.g. 5 minutes"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="routeInformation">
+                    Route Information
+                </label>
+
+                <textarea
+                    id="routeInformation"
+                    rows="5"
+                    placeholder="Describe the route and navigation instructions..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelRouteButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Route
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="data-card">
+
+        <div class="data-card-header">
+
+            <h3>
+                Campus Routes
+            </h3>
+
+            <input
+                type="text"
+                id="routeSearch"
+                placeholder="Search routes..."
+            >
+
+        </div>
+
+
+        <div
+            id="routesList"
+            class="empty-state"
+        >
+
+            <span>
+                ➜
+            </span>
+
+            <h3>
+                No Routes Yet
+            </h3>
+
+            <p>
+                Routes created from the form
+                will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SETTINGS
+====================================================== -->
+
+<section
+    id="settingsSection"
+    class="admin-section hidden"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Settings
+            </h2>
+
+            <p>
+                Manage CampusNav application settings.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-form-card">
+
+        <h3>
+            Admin Settings
+        </h3>
+
+
+        <div class="setting-item">
+
+            <div>
+
+                <strong>
+                    Administrator Account
+                </strong>
+
+                <p>
+                    Administrator authentication
+                    is managed through Firebase.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="changeAdminButton"
+            >
+                Account Information
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-form-card">
+
+        <h3>
+            Map Settings
+        </h3>
+
+
+        <div class="form-group">
+
+            <label for="adminMapType">
+                Default Map Type
+            </label>
+
+
+            <select id="adminMapType">
+
+                <option value="roadmap">
+                    Road Map
+                </option>
+
+                <option value="satellite">
+                    Satellite
+                </option>
+
+                <option value="hybrid">
+                    Hybrid
+                </option>
+
+                <option value="terrain">
+                    Terrain
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="primary-button"
+                id="saveMapSettingsButton"
+            >
+                Save Map Settings
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-form-card">
+
+        <h3>
+            Application Information
+        </h3>
+
+
+        <div class="form-group">
+
+            <label>
+                Application Name
+            </label>
+
+            <input
+                type="text"
+                value="CampusNav"
+                readonly
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Application Description
+            </label>
+
+            <textarea
+                rows="4"
+                readonly
+            >CampusNav is an intelligent campus navigation system designed to help students, staff and visitors locate important places within the institution.</textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Developer
+            </label>
+
+            <input
+                type="text"
+                value="Uchechukwu Isioma Goodness"
+                readonly
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Institution
+            </label>
+
+            <input
+                type="text"
+                value="Federal University of Technology Ilaro"
+                readonly
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script
+    type="module"
+    src="../js/admin.js"
+></script>
+
+
+</body>
+
+</html>

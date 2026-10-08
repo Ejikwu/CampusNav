@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0B5D3B"
+    >
+
+    <title>Admin Login - CampusNav</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="login-page">
+
+        <div class="login-card">
+
+            <!-- LOGO -->
+
+            <div class="login-logo">
+
+                <img
+                    src="../assets/logo.png"
+                    alt="CampusNav Logo"
+                >
+
+            </div>
+
+
+            <h1>
+                CampusNav
+            </h1>
+
+
+            <p class="login-subtitle">
+                Administrator Login
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter administrator email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- LOGIN MESSAGE -->
+
+                <div
+                    id="loginMessage"
+                    class="login-error"
+                ></div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="login-button"
+                >
+                    Login
+                </button>
+
+
+            </form>
+
+
+            <!-- BACK -->
+
+            <button
+                type="button"
+                id="backButton"
+                class="back-button"
+            >
+                ← Back to Map
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ADMIN JAVASCRIPT -->
+
+    <script
+        type="module"
+        src="../js/admin.js"
+    ></script>
+
+
+</body>
+
+</html>
